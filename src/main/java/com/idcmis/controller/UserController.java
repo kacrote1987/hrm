@@ -25,21 +25,21 @@ public class UserController {
     @ApiOperation("登陆")
     @PostMapping("/login")
     public Result login(@RequestBody @Valid LoginForm params){
-        LoginVo userLoginVo= userService.login(params);
-        return Result.success(userLoginVo);
+        LoginForm userLogin= userService.login(params);
+        return Result.success(userLogin);
     }
 
     @ApiOperation("用户信息列表")
     @PostMapping("/userList")
     public Result userList(UserListForm params){
-        PageInfo<UserListVo> userList= userService.userList(params);
+        PageInfo<UserListForm> userList= userService.userList(params);
         return Result.success(userList);
     }
 
     @ApiOperation("用户详细信息")
     @PostMapping("/userDet")
     public Result userDet(@RequestBody Long userId){
-        List<UserDetVo> userDet=userService.userDet(userId);
+        List<UserDetForm> userDet=userService.userDet(userId);
         return Result.success(userDet);
     }
 }

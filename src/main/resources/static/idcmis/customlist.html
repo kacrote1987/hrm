@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>资产管理</title>
+  <title>客户管理</title>
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport"
@@ -17,33 +17,45 @@
     <div class="layui-form layui-card-header layuiadmin-card-header-auto">
       <div class="layui-form-item">
         <div class="layui-inline">
-          <label class="layui-form-label">产品类别</label>
-          <div class="layui-input-block">
-            <select id="prodType" lay-filter="prodType">
-              <option value="">全部</option>
-              <option value="原料">原料</option>
-              <option value="包装袋">包装袋</option>
-              <option value="五金件">五金件</option>
-              <option value="半成品">半成品</option>
-              <option value="成品">成品</option>
-            </select>
-          </div>
-        </div>
-        <div class="layui-inline">
-          <label class="layui-form-label">产品名称</label>
+          <label class="layui-form-label">客户姓名</label>
           <div class="layui-input-block">
             <input type="text" id="prodName" placeholder="请输入" autocomplete="off"
                    class="layui-input">
           </div>
         </div>
         <div class="layui-inline">
-          <label class="layui-form-label">产品状态</label>
+          <label class="layui-form-label">客户QQ</label>
           <div class="layui-input-block">
-            <select id="prodState">
-              <option value="">全部</option>
-              <option value="在用">在用</option>
-              <option value="停用">停用</option>
-            </select>
+            <input type="text" id="prodName" placeholder="请输入" autocomplete="off"
+                   class="layui-input">
+          </div>
+        </div>
+        <div class="layui-inline">
+          <label class="layui-form-label">联系电话</label>
+          <div class="layui-input-block">
+            <input type="text" id="prodName" placeholder="请输入" autocomplete="off"
+                   class="layui-input">
+          </div>
+        </div>
+        <div class="layui-inline">
+          <label class="layui-form-label">旺旺ID</label>
+          <div class="layui-input-block">
+            <input type="text" id="prodName" placeholder="请输入" autocomplete="off"
+                   class="layui-input">
+          </div>
+        </div>
+        <div class="layui-inline">
+          <label class="layui-form-label">服务器IP</label>
+          <div class="layui-input-block">
+            <input type="text" id="prodName" placeholder="请输入" autocomplete="off"
+                   class="layui-input">
+          </div>
+        </div>
+        <div class="layui-inline">
+          <label class="layui-form-label">服务配置</label>
+          <div class="layui-input-block">
+            <input type="text" id="prodName" placeholder="请输入" autocomplete="off"
+                   class="layui-input">
           </div>
         </div>
         <div class="layui-inline">
@@ -109,12 +121,13 @@
       , cols: [[
         {type: 'checkbox', fixed: 'left', width: '5%'}
         , {type: 'numbers', title: '序号', width: '5%'}
-        , {field: 'typeName', title: '产品类别' , width: '16%'}
-        , {field: 'prodName', title: '产品名称', width: '16%'}
-        , {field: 'prodNum', title: '产品数量', width: '16%'}
-        , {field: 'updateTime', title: '更新时间', width: '16%'}
-        , {field: 'prodState', title: '产品状态', width: '16%'}
-        , {fixed: 'right', title: '操作', toolbar: '#test-table-toolbar-barDemo', width: '10%'}
+        , {field: 'prodNum', title: '客户姓名', width: '13%'}
+        , {field: 'updateTime', title: '联系电话', width: '13%'}
+        , {field: 'typeName', title: '客户QQ' , width: '13%'}
+        , {field: 'prodName', title: '旺旺ID', width: '13%'}
+        , {field: 'prodName', title: '服务器IP', width: '13%'}
+        , {field: 'prodName', title: '服务器配置', width: '18%'}
+        , {fixed: 'right', title: '操作', toolbar: '#test-table-toolbar-barDemo', width: '7%'}
       ]]
       , page: true
       , parseData: function (res) { //将原始数据解析成 table 组件所规定的数据

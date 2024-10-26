@@ -10,15 +10,15 @@ public interface UserService {
      * 登陆
      * @return
      */
-    LoginVo login(LoginForm params);
+    LoginForm login(LoginForm params);
     /**
      * 人员信息列表
      * @return
      */
-    PageInfo<UserListVo> userList(UserListForm params);
+    PageInfo<UserListForm> userList(UserListForm params);
     /**
      * 人员信息详细
      * @return
      */
-    List<UserDetVo> userDet(Long userId);
+    List<UserDetForm> userDet(Long userId);
 }

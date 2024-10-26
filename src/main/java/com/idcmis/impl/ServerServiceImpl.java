@@ -2,36 +2,35 @@ package com.idcmis.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.idcmis.entity.ProdDetVo;
-import com.idcmis.entity.ProdListForm;
-import com.idcmis.entity.ProdListVo;
-import com.idcmis.mapper.ProdMapper;
-import com.idcmis.service.ProdService;
+import com.idcmis.entity.ServerDetForm;
+import com.idcmis.entity.ServerListForm;
+import com.idcmis.mapper.ServerMapper;
+import com.idcmis.service.ServerService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class ProdServiceImpl implements ProdService {
+public class ServerServiceImpl implements ServerService {
     @Resource
-    ProdMapper prodMapper;
+    ServerMapper serverMapper;
 
     @Override
-    public PageInfo<ProdListVo> prodList(ProdListForm params) {
+    public PageInfo<ServerListForm> serverList(ServerListForm params) {
         Integer page = 0;
         if(params.getPage() != null){
             page = params.getPage();
         }
         PageHelper.startPage(page, 10);
-        List<ProdListVo> prodList = prodMapper.prodList(params);
-        return PageInfo.of(prodList);
+        List<ServerListForm> serverList = serverMapper.serverList(params);
+        return PageInfo.of(serverList);
     }
 
     @Override
-    public List<ProdDetVo> prodDet(Long prodId) {
-        List<ProdDetVo> prodDet=prodMapper.prodDet(prodId);
-        return prodDet;
+    public List<ServerDetForm> serverDet(Long prodId) {
+        List<ServerDetForm> serverDet=serverMapper.serverDet(prodId);
+        return serverDet;
     }
 
     public static String method (String str){

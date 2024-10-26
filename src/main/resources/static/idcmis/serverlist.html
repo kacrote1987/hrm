@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>用户管理</title>
+  <title>服务器列表</title>
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport"
@@ -17,33 +17,61 @@
     <div class="layui-form layui-card-header layuiadmin-card-header-auto">
       <div class="layui-form-item">
         <div class="layui-inline">
-          <label class="layui-form-label">用户类别</label>
+          <label class="layui-form-label">托管机房</label>
           <div class="layui-input-block">
             <select id="prodType" lay-filter="prodType">
               <option value="">全部</option>
-              <option value="原料">原料</option>
-              <option value="包装袋">包装袋</option>
-              <option value="五金件">五金件</option>
-              <option value="半成品">半成品</option>
-              <option value="成品">成品</option>
+              <option value="机房1">机房1</option>
+              <option value="机房2">机房2</option>
+              <option value="机房3">机房3</option>
             </select>
           </div>
         </div>
         <div class="layui-inline">
-          <label class="layui-form-label">用户姓名</label>
+          <label class="layui-form-label">托管机柜</label>
+          <div class="layui-input-block">
+            <select id="prodType" lay-filter="prodType">
+              <option value="">全部</option>
+              <option value="机柜1">机柜1</option>
+              <option value="机柜2">机柜2</option>
+              <option value="机柜3">机柜3</option>
+            </select>
+          </div>
+        </div>
+        <div class="layui-inline">
+          <label class="layui-form-label">服务器名称</label>
           <div class="layui-input-block">
             <input type="text" id="prodName" placeholder="请输入" autocomplete="off"
                    class="layui-input">
           </div>
         </div>
         <div class="layui-inline">
-          <label class="layui-form-label">用户状态</label>
+          <label class="layui-form-label">运行状态</label>
           <div class="layui-input-block">
             <select id="prodState">
               <option value="">全部</option>
-              <option value="在用">在用</option>
-              <option value="停用">停用</option>
+              <option value="正常">正常</option>
+              <option value="空闲">空闲</option>
+              <option value="屏蔽">屏蔽</option>
+              <option value="关机">关机</option>
+              <option value="未续费">未续费</option>
+              <option value="故障">故障</option>
+              <option value="待交付">待交付</option>
             </select>
+          </div>
+        </div>
+        <div class="layui-inline">
+          <label class="layui-form-label">起始日期</label>
+          <div class="layui-input-block">
+            <input type="text" id="prodName" placeholder="请输入" autocomplete="off"
+                   class="layui-input">
+          </div>
+        </div>
+        <div class="layui-inline">
+          <label class="layui-form-label">终止日期</label>
+          <div class="layui-input-block">
+            <input type="text" id="prodName" placeholder="请输入" autocomplete="off"
+                   class="layui-input">
           </div>
         </div>
         <div class="layui-inline">
@@ -57,6 +85,7 @@
     <script type="text/html" id="test-table-toolbar-toolbarDemo">
       <div class="layui-btn-container">
         <button class="layui-btn layui-btn-sm" lay-event="add">新增</button>
+        <button class="layui-btn layui-btn-sm" lay-event="import">导入</button>
       </div>
     </script>
 
@@ -99,7 +128,7 @@
       elem: '#test-table-toolbar'
       , id: 'prodReload'
       , method: 'post'
-      , url: '/prod/prodList/' //数据接口
+      , url: '/server/serverList/' //数据接口
       , response: {
         statusName: 'code',
         statusCode: '200'
@@ -108,12 +137,27 @@
       , title: '资产基础信息表'
       , cols: [[
         {type: 'checkbox', fixed: 'left', width: '5%'}
-        , {type: 'numbers', title: '序号', width: '5%'}
-        , {field: 'typeName', title: '用户类别' , width: '20%'}
-        , {field: 'prodName', title: '用户姓名', width: '20%'}
-        , {field: 'prodNum', title: '登录账号', width: '20%'}
-        , {field: 'prodState', title: '用户状态', width: '20%'}
-        , {fixed: 'right', title: '操作', toolbar: '#test-table-toolbar-barDemo', width: '10%'}
+        , {field: 'serverId', title: '序号', width: '5%'}
+        , {field: 'serverRoom', title: '托管机房' , width: '6%'}
+        , {field: 'serverCabinet', title: '托管机柜' , width: '6%'}
+        , {field: 'serverNumber', title: '服务器编号' , width: '7%'}
+        , {field: 'serverName', title: '服务器名称', width: '7%'}
+        , {field: 'serverConfig', title: '服务器配置', width: '7%'}
+        , {field: 'serverIp', title: '服务器IP', width: '6%'}
+        , {field: 'backupIp', title: '备用IP', width: '6%'}
+        , {field: 'serverState', title: '运行状态', width: '6%'}
+        , {field: 'beginDate', title: '起始日期', width: '6%'}
+        , {field: 'endDate', title: '终止日期', width: '6%'}
+        , {field: 'serverPrice', title: '价格', width: '6%'}
+        , {field: 'serverCost', title: '成本', width: '6%'}
+        , {field: 'serverProfit', title: '利润', width: '6%'}
+        , {field: 'serverArrears', title: '欠款', width: '6%'}
+        , {field: 'customName', title: '客户姓名', width: '6%'}
+        , {field: 'customTel', title: '联系电话', width: '6%'}
+        , {field: 'customQq', title: '客户QQ', width: '6%'}
+        , {field: 'customWw', title: '旺旺ID', width: '6%'}
+        , {field: 'serverRemark', title: '备注信息', width: '6%'}
+        , {fixed: 'right', title: '操作', toolbar: '#test-table-toolbar-barDemo', width: '7%'}
       ]]
       , page: true
       , parseData: function (res) { //将原始数据解析成 table 组件所规定的数据
@@ -153,7 +197,7 @@
           layer.open({
             type: 2
             ,title: '新增'
-            ,content: 'prodadd.html'
+            ,content: 'serverdet.html?0'
             ,maxmin: true
             ,area: ['1200px', '600px']
           });
@@ -167,8 +211,8 @@
       if (obj.event === 'det') {
         layer.open({
           type: 2
-          , title: '产品详细'
-          , content: 'proddet.html?' + data.prodId
+          , title: '服务器详细'
+          , content: 'serverdet.html?' + data.prodId
           , maxmin: true
           , area: ['1200px', '600px']
         });

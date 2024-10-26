@@ -20,12 +20,11 @@ public class UserServiceImpl implements UserService {
 //    @Resource
 
     @Override
-    public LoginVo login(LoginForm params) {
-        LoginVo userLoginVo=userMapper.login(params.getUserCode(),params.getUserPwd());
-        System.out.println(userLoginVo.getUserState());
-        if(userLoginVo!=null){
-            userLoginVo.setToken(UUID.randomUUID().toString());
-            MyCache.put(userLoginVo.getToken(),userLoginVo,30, TimeUnit.MINUTES);
+    public LoginForm login(LoginForm params) {
+        LoginForm userLogin=userMapper.login(params.getUserCode(),params.getUserPwd());
+        if(userLogin!=null){
+            userLogin.setToken(UUID.randomUUID().toString());
+            MyCache.put(userLogin.getToken(),userLogin,30, TimeUnit.MINUTES);
         }
 //        final List<PermissionVo> permissionVoList=userMapper.selectPerm(userLoginVo.getRoleId());
 //        if(permissionVoList==null || permissionVoList.size()==0){
@@ -33,10 +32,10 @@ public class UserServiceImpl implements UserService {
 //        }
 //        permissionVoList.forEach(item->PermissionVo.build(item,permissionVoList));
 //        userLoginVo.setPerms(permissionVoList.stream().filter(item->item.getPid()==0).collect(Collectors.toList()));
-        return userLoginVo;
+        return userLogin;
     }
 
-    public PageInfo<UserListVo> userList(UserListForm params) {
+    public PageInfo<UserListForm> userList(UserListForm params) {
         Integer page = 0;
         if(params.getPage() != null){
             page = params.getPage();
@@ -48,13 +47,13 @@ public class UserServiceImpl implements UserService {
         }else{
             type=params.getType();
         }
-        List<UserListVo> userList=userMapper.userList(type,params);
+        List<UserListForm> userList=userMapper.userList(type,params);
         return PageInfo.of(userList);
     }
 
     @Override
-    public List<UserDetVo> userDet(Long userId) {
-        List<UserDetVo> userDet=null;
+    public List<UserDetForm> userDet(Long userId) {
+        List<UserDetForm> userDet=null;
         if(userId!=0){
             userDet=userMapper.selDet(userId);
         }

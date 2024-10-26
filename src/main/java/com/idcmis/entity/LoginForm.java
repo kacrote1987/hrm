@@ -9,6 +9,7 @@ public class LoginForm {
     private String userCode;
     @NotNull(message = "密码不能为空")
     private String userPwd;
+    private String token;
 
     public String getUserCode() {
         return userCode;
@@ -24,5 +25,13 @@ public class LoginForm {
 
     public void setUserPwd(String userPwd) {
         this.userPwd = userPwd;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

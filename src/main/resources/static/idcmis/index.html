@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>企业名称</title>
+  <title>IDC服务器信息管理系统</title>
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -43,9 +43,6 @@
             <img src="http://t.cn/RCzsdCq" class="layui-nav-img"><cite>管理员</cite>
           </a>
           <dl class="layui-nav-child">
-            <dd><a lay-href="../org/loginfo.html">登录信息</a></dd>
-            <dd><a lay-href="../org/myroler.html">我的权限</a></dd>
-            <hr>
             <dd><a href="login.html">退出</a></dd>
           </dl>
         </li>
@@ -60,7 +57,7 @@
       <div class="layui-side-scroll">
         <a href="index.html">
           <div class="layui-logo">
-            <span><img src="config/img/logo.png">&nbsp;&nbsp;企业名称</span>
+            <span>IDC服务器信息管理系统</span>
           </div>
         </a>
 
@@ -72,7 +69,8 @@
               <cite>菜单</cite>
             </a>
             <dl class="layui-nav-child">
-              <dd data-name="home"><a lay-href="prodlist.html">产品管理</a></dd>
+              <dd data-name="home"><a lay-href="serverlist.html">服务器管理</a></dd>
+              <dd data-name="home"><a lay-href="customlist.html">客户管理</a></dd>
               <dd data-name="home"><a lay-href="userlist.html">人员管理</a></dd>
             </dl>
           </li>
@@ -100,7 +98,7 @@
       </div>
       <div class="layui-tab" lay-unauto lay-allowClose="true" lay-filter="layadmin-layout-tabs">
         <ul class="layui-tab-title" id="LAY_app_tabsheader">
-          <li lay-id="prodlist.html" lay-attr="prodlist.html" class="layui-this"><i class="layui-icon layui-icon-home"></i></li>
+          <li lay-id="serverlist.html" lay-attr="serverlist.html" class="layui-this"><i class="layui-icon layui-icon-home"></i></li>
         </ul>
       </div>
     </div>
@@ -109,7 +107,7 @@
     <!-- 主体内容 -->
     <div class="layui-body" id="LAY_app_body">
       <div class="layadmin-tabsbody-item layui-show">
-        <iframe src="prodlist.html" frameborder="0" class="layadmin-iframe"></iframe>
+        <iframe src="serverlist.html" frameborder="0" class="layadmin-iframe"></iframe>
       </div>
     </div>
 

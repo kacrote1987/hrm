@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 @Mapper
-public interface ProdMapper {
-    List<ProdListVo> prodList(@Param("params") ProdListForm params);
-    List<ProdDetVo> prodDet(Long prodId);
+public interface ServerMapper {
+    List<ServerListForm> serverList(@Param("params") ServerListForm params);
+    List<ServerDetForm> serverDet(Long prodId);
 }

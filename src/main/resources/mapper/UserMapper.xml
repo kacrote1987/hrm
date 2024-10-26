@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybaselectByUsernametiselectUsers.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.idcmis.mapper.UserMapper">
-    <select id="login" resultType="com.idcmis.entity.LoginVo" >
+    <select id="login" resultType="com.idcmis.entity.LoginForm" >
         select * from t_user_main where user_code=#{userCode} and user_pwd=#{userPwd} and user_state='1'
     </select>
-    <select id="userList" resultType="com.idcmis.entity.UserListVo" >
+    <select id="userList" resultType="com.idcmis.entity.UserListForm" >
         select a.user_id,b.dept_name,a.user_name,a.user_sex,a.user_no,a.user_tel,a.user_cornet,a.user_offcall
         ,a.user_state from t_sys_user a inner join (select * from t_sys_dept where dept_type=#{type}) b on a.${type}_id=b.dept_id
          where a.user_state!='离职'
@@ -19,7 +19,7 @@
         </if>
         order by a.dept_id,a.user_order desc,a.user_no
     </select>
-    <select id="selDet" resultType="com.idcmis.entity.UserDetVo">
+    <select id="selDet" resultType="com.idcmis.entity.UserDetForm">
         select t.user_id,t.user_no,t.user_name,t.user_sex,t.user_tel,t.user_cornet,t.user_offcall,t.user_idcard,t.user_homeaddr,t.user_hometel
         ,t.user_edu,t.user_degree,t.user_school,t.user_major,t.user_polity,t.user_politime,t.user_prop,t.user_jointime,t.dept_id,t.user_duty
         ,t.part_id,t.majo_id,t.user_prof,t.user_topcert,t.user_CPK,t.user_paymonth,(case when length(t.user_idcard)='18' then year(SYSDATE())-SUBSTR(t.user_idcard,7,4)
