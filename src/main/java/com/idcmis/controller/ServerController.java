@@ -27,8 +27,8 @@ public class ServerController {
 
     @ApiOperation("服务器详细")
     @PostMapping("/serverDet")
-    public Result serverDet(@RequestBody Long prodId){
-        List<ServerDetForm> serverDet= serverService.serverDet(prodId);
+    public Result serverDet(@RequestBody Long serverId){
+        List<ServerDetForm> serverDet= serverService.serverDet(serverId);
         return Result.success(serverDet);
     }
 }

@@ -19,36 +19,28 @@
         <div class="layui-inline">
           <label class="layui-form-label">托管机房</label>
           <div class="layui-input-block">
-            <select id="prodType" lay-filter="prodType">
-              <option value="">全部</option>
-              <option value="机房1">机房1</option>
-              <option value="机房2">机房2</option>
-              <option value="机房3">机房3</option>
-            </select>
+            <input type="text" id="serverRoom" placeholder="请输入" autocomplete="off"
+                   class="layui-input">
           </div>
         </div>
         <div class="layui-inline">
           <label class="layui-form-label">托管机柜</label>
           <div class="layui-input-block">
-            <select id="prodType" lay-filter="prodType">
-              <option value="">全部</option>
-              <option value="机柜1">机柜1</option>
-              <option value="机柜2">机柜2</option>
-              <option value="机柜3">机柜3</option>
-            </select>
+            <input type="text" id="serverCabinet" placeholder="请输入" autocomplete="off"
+                   class="layui-input">
           </div>
         </div>
         <div class="layui-inline">
           <label class="layui-form-label">服务器名称</label>
           <div class="layui-input-block">
-            <input type="text" id="prodName" placeholder="请输入" autocomplete="off"
+            <input type="text" id="serverName" placeholder="请输入" autocomplete="off"
                    class="layui-input">
           </div>
         </div>
         <div class="layui-inline">
           <label class="layui-form-label">运行状态</label>
           <div class="layui-input-block">
-            <select id="prodState">
+            <select id="serverState">
               <option value="">全部</option>
               <option value="正常">正常</option>
               <option value="空闲">空闲</option>
@@ -63,14 +55,14 @@
         <div class="layui-inline">
           <label class="layui-form-label">起始日期</label>
           <div class="layui-input-block">
-            <input type="text" id="prodName" placeholder="请输入" autocomplete="off"
+            <input type="text" id="beginDate" placeholder="请输入" autocomplete="off"
                    class="layui-input">
           </div>
         </div>
         <div class="layui-inline">
           <label class="layui-form-label">终止日期</label>
           <div class="layui-input-block">
-            <input type="text" id="prodName" placeholder="请输入" autocomplete="off"
+            <input type="text" id="endDate" placeholder="请输入" autocomplete="off"
                    class="layui-input">
           </div>
         </div>
@@ -126,7 +118,7 @@
 
     table.render({
       elem: '#test-table-toolbar'
-      , id: 'prodReload'
+      , id: 'serverReload'
       , method: 'post'
       , url: '/server/serverList/' //数据接口
       , response: {
@@ -173,17 +165,23 @@
     //执行重载
     var $ = layui.$, active = {
       reload: function () {
-        var typeName = $('#typeName');
-        var prodName = $('#prodName');
-        var prodState = $('#prodState');
-        table.reload('prodReload', {
+        var serverRoom = $('#serverRoom');
+        var serverCabinet = $('#serverCabinet');
+        var serverName = $('#serverName');
+        var serverState = $('#serverState');
+        var beginDate = $('#beginDate');
+        var endDate = $('#endDate');
+        table.reload('serverReload', {
           page: {
             curr: 1 //重新从第 1 页开始
           }
           , where: {
-            typeName: typeName.val(),
-            prodName: prodName.val(),
-            prodState: prodState.val()
+            serverRoom: serverRoom.val(),
+            serverCabinet: serverCabinet.val(),
+            serverName: serverName.val(),
+            serverState: serverState.val(),
+            beginDate: beginDate.val(),
+            endDate: endDate.val()
           }
         }, 'data');
       }
@@ -212,7 +210,7 @@
         layer.open({
           type: 2
           , title: '服务器详细'
-          , content: 'serverdet.html?' + data.prodId
+          , content: 'serverdet.html?' + data.serverId
           , maxmin: true
           , area: ['1200px', '600px']
         });
@@ -220,8 +218,8 @@
         layer.confirm('是否删除？', {
           btn: ['是','否'] //按钮
         }, function(){
-          postdata(null,"/prod/offLine?prodId=" + data.prodId,function () {
-            table.reload('prodReload');layer.msg("已下架");});
+          postdata(null,"/server/offLine?serverId=" + data.serverId,function () {
+            table.reload('serverReload');layer.msg("已删除");});
         });
       }
     });

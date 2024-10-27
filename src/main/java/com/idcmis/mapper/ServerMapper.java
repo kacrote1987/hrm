@@ -9,5 +9,5 @@ import java.util.List;
 @Mapper
 public interface ServerMapper {
     List<ServerListForm> serverList(@Param("params") ServerListForm params);
-    List<ServerDetForm> serverDet(Long prodId);
+    List<ServerDetForm> serverDet(Long serverId);
 }

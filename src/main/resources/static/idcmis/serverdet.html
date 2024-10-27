@@ -14,184 +14,183 @@
 <div class="layui-fluid">
   <div class="layui-card">
     <div class="layui-card-body">
-      <div class="layui-tab">
-        <div class="layui-tab-content">
-          <div class="layui-tab-item layui-show">
-            <!--            基本情况页-->
-            <div class="layui-row layui-col-space12">
-              <div class="layui-col-md2">
-              </div>
-              <div class="layui-col-md8">
-                <div class="layui-card">
-                  <input id="prodId" type="text" name="prodId" placeholder="" autocomplete="off"
-                         class="layui-input" style="display: none">
-                  <div class="layui-card-body">
-                    <form class="layui-form" action="" lay-filter="component-form-element">
-                      <div class="layui-row layui-col-space10 layui-form-item">
-                        <div class="layui-col-lg6">
-                          <label class="layui-form-label">托管机房</label>
-                          <div class="layui-input-block">
-                            <select id="prodType" lay-filter="prodType">
-                              <option value="">全部</option>
-                              <option value="智慧园区">智慧园区</option>
-                              <option value="未来社区">未来社区</option>
-                              <option value="智慧国企">智慧国企</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="layui-col-lg6">
-                          <label class="layui-form-label">托管机柜</label>
-                          <div class="layui-input-block">
-                            <select id="prodState" lay-filter="prodState">
-                              <option value="在用">在用</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="layui-row layui-col-space10 layui-form-item">
-                          <div class="layui-col-lg6">
-                            <label class="layui-form-label">服务器编号</label>
-                            <div class="layui-input-block">
-                              <input id="prodName" type="text" lay-verify="required" placeholder=""
-                                     autocomplete="off" class="layui-input">
-                            </div>
-                          </div>
-                          <div class="layui-col-lg6">
-                            <label class="layui-form-label">服务器名称</label>
-                            <div class="layui-input-block">
-                              <input id="prodNikname" type="text" lay-verify="required" placeholder=""
-                                     autocomplete="off" class="layui-input">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="layui-row layui-col-space10 layui-form-item">
-                          <div class="layui-col-lg6">
-                            <label class="layui-form-label">服务器配置</label>
-                            <div class="layui-input-block">
-                              <input id="prodVer" type="text" lay-verify="required" placeholder=""
-                                     autocomplete="off" class="layui-input">
-                            </div>
-                          </div>
-                          <div class="layui-col-lg6">
-                            <label class="layui-form-label">运行状态</label>
-                            <div class="layui-input-block">
-                              <input id="prodVer" type="text" lay-verify="required" placeholder=""
-                                     autocomplete="off" class="layui-input">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="layui-row layui-col-space10 layui-form-item">
-                          <div class="layui-col-lg6">
-                            <label class="layui-form-label">服务器IP</label>
-                            <div class="layui-input-block">
-                              <input id="prodName" type="text" lay-verify="required" placeholder=""
-                                     autocomplete="off" class="layui-input">
-                            </div>
-                          </div>
-                          <div class="layui-col-lg6">
-                            <label class="layui-form-label">备用IP</label>
-                            <div class="layui-input-block">
-                              <input id="prodNikname" type="text" lay-verify="required" placeholder=""
-                                     autocomplete="off" class="layui-input">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="layui-row layui-col-space10 layui-form-item">
-                          <div class="layui-col-lg6">
-                            <label class="layui-form-label">起始日期</label>
-                            <div class="layui-input-block">
-                              <input id="prodName" type="text" lay-verify="required" placeholder=""
-                                     autocomplete="off" class="layui-input">
-                            </div>
-                          </div>
-                          <div class="layui-col-lg6">
-                            <label class="layui-form-label">终止日期</label>
-                            <div class="layui-input-block">
-                              <input id="prodNikname" type="text" lay-verify="required" placeholder=""
-                                     autocomplete="off" class="layui-input">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="layui-row layui-col-space10 layui-form-item">
-                          <div class="layui-col-lg6">
-                            <label class="layui-form-label">价格</label>
-                            <div class="layui-input-block">
-                              <input id="prodName" type="text" lay-verify="required" placeholder=""
-                                     autocomplete="off" class="layui-input">
-                            </div>
-                          </div>
-                          <div class="layui-col-lg6">
-                            <label class="layui-form-label">成本</label>
-                            <div class="layui-input-block">
-                              <input id="prodNikname" type="text" lay-verify="required" placeholder=""
-                                     autocomplete="off" class="layui-input">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="layui-row layui-col-space10 layui-form-item">
-                          <div class="layui-col-lg6">
-                            <label class="layui-form-label">利润</label>
-                            <div class="layui-input-block">
-                              <input id="prodName" type="text" lay-verify="required" placeholder=""
-                                     autocomplete="off" class="layui-input">
-                            </div>
-                          </div>
-                          <div class="layui-col-lg6">
-                            <label class="layui-form-label">欠款</label>
-                            <div class="layui-input-block">
-                              <input id="prodNikname" type="text" lay-verify="required" placeholder=""
-                                     autocomplete="off" class="layui-input">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="layui-row layui-col-space10 layui-form-item">
-                          <div class="layui-col-lg6">
-                            <label class="layui-form-label">客户姓名</label>
-                            <div class="layui-input-block">
-                              <input id="prodName" type="text" lay-verify="required" placeholder=""
-                                     autocomplete="off" class="layui-input">
-                            </div>
-                          </div>
-                          <div class="layui-col-lg6">
-                            <label class="layui-form-label">联系电话</label>
-                            <div class="layui-input-block">
-                              <input id="prodNikname" type="text" lay-verify="required" placeholder=""
-                                     autocomplete="off" class="layui-input">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="layui-row layui-col-space10 layui-form-item">
-                          <div class="layui-col-lg6">
-                            <label class="layui-form-label">客户QQ</label>
-                            <div class="layui-input-block">
-                              <input id="prodName" type="text" lay-verify="required" placeholder=""
-                                     autocomplete="off" class="layui-input">
-                            </div>
-                          </div>
-                          <div class="layui-col-lg6">
-                            <label class="layui-form-label">旺旺ID</label>
-                            <div class="layui-input-block">
-                              <input id="prodNikname" type="text" lay-verify="required" placeholder=""
-                                     autocomplete="off" class="layui-input">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="layui-form-item">
-                          <label class="layui-form-label">备注信息</label>
-                          <div class="layui-input-block">
-                              <textarea id="prodExplain" placeholder="" class="layui-textarea"></textarea>
-                          </div>
-                        </div>
+      <div class="layui-row layui-col-space12">
+        <div class="layui-col-md2">
+        </div>
+        <div class="layui-col-md8">
+          <div class="layui-card">
+            <input id="serverId" type="text" name="serverId" placeholder="" autocomplete="off"
+                   class="layui-input" style="display: none">
+            <div class="layui-card-body">
+              <form class="layui-form" action="" lay-filter="component-form-element">
+                <div class="layui-row layui-col-space10 layui-form-item">
+                  <div class="layui-row layui-col-space10 layui-form-item">
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">托管机房</label>
+                      <div class="layui-input-block">
+                        <input id="serverRoom" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
                       </div>
-                    </form>
+                    </div>
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">托管机柜</label>
+                      <div class="layui-input-block">
+                        <input id="serverCabinet" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="layui-row layui-col-space10 layui-form-item">
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">服务器编号</label>
+                      <div class="layui-input-block">
+                        <input id="serverNumber" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">服务器名称</label>
+                      <div class="layui-input-block">
+                        <input id="serverName" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="layui-row layui-col-space10 layui-form-item">
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">服务器配置</label>
+                      <div class="layui-input-block">
+                        <input id="serverConfig" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">运行状态</label>
+                      <div class="layui-input-block">
+                        <input id="serverState" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="layui-row layui-col-space10 layui-form-item">
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">服务器IP</label>
+                      <div class="layui-input-block">
+                        <input id="serverIp" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">备用IP</label>
+                      <div class="layui-input-block">
+                        <input id="backupIp" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="layui-row layui-col-space10 layui-form-item">
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">起始日期</label>
+                      <div class="layui-input-block">
+                        <input id="beginDate" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">终止日期</label>
+                      <div class="layui-input-block">
+                        <input id="endDate" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="layui-row layui-col-space10 layui-form-item">
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">价格</label>
+                      <div class="layui-input-block">
+                        <input id="serverPrice" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">成本</label>
+                      <div class="layui-input-block">
+                        <input id="serverCost" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="layui-row layui-col-space10 layui-form-item">
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">利润</label>
+                      <div class="layui-input-block">
+                        <input id="serverProfit" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">欠款</label>
+                      <div class="layui-input-block">
+                        <input id="serverArrears" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="layui-row layui-col-space10 layui-form-item">
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">客户姓名</label>
+                      <div class="layui-input-block">
+                        <input id="customName" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">联系电话</label>
+                      <div class="layui-input-block">
+                        <input id="customTel" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="layui-row layui-col-space10 layui-form-item">
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">客户QQ</label>
+                      <div class="layui-input-block">
+                        <input id="customQq" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">旺旺ID</label>
+                      <div class="layui-input-block">
+                        <input id="customWw" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="layui-form-item">
+                    <label class="layui-form-label">备注信息</label>
+                    <div class="layui-input-block">
+                      <textarea id="serverRemark" placeholder="" class="layui-textarea"></textarea>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="layui-col-md2">
-              </div>
+              </form>
             </div>
           </div>
         </div>
+        <div class="layui-col-md2">
+          123
+        </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="layui-form-item layui-layout-admin">
+  <div class="layui-input-block">
+    <div class="layui-footer" style="left: 0;">
+      <button class="layui-btn" onclick="save()">保存</button>
     </div>
   </div>
 </div>
@@ -213,25 +212,37 @@
             , table = layui.table;
 
     form.render(null, 'component-form-group');
-    var prodId = window.location.search.substring(1, window.location.search.length);
+    var serverId = window.location.search.substring(1, window.location.search.length);
+    alert(serverId);
     $.ajax({
       type: "post",
       url: "/server/serverDet",
       contentType: "application/json;charset=utf-8",
       dataType: "json",
-      data: prodId,
+      data: serverId,
       success: function (detObj) {
         if (detObj.msg == "success") {
           var detJson = detObj.data[0];
-          $('#prodId').val(detJson.prodId);
-          $('#prodType').val(detJson.prodType);
-          $('#prodName').val(detJson.prodName);
-          $('#prodNikname').val(detJson.prodNikname);
-          $('#prodVer').val(detJson.prodVer);
-          $('#prodLink').val(detJson.prodLink);
-          $('#prodExplain').val(detJson.prodExplain);
-          $('#prodTime').val(detJson.prodTime);
-          $('#prodState').val(detJson.prodState);
+          $('#serverId').val(detJson.serverId);
+          $('#serverRoom').val(detJson.serverRoom);
+          $('#serverCabinet').val(detJson.serverCabinet);
+          $('#serverNumber').val(detJson.serverNumber);
+          $('#serverName').val(detJson.serverName);
+          $('#serverConfig').val(detJson.serverConfig);
+          $('#serverIp').val(detJson.serverIp);
+          $('#backupIp').val(detJson.backupIp);
+          $('#serverState').val(detJson.serverState);
+          $('#beginDate').val(detJson.beginDate);
+          $('#endDate').val(detJson.endDate);
+          $('#serverPrice').val(detJson.serverPrice);
+          $('#serverCost').val(detJson.serverCost);
+          $('#serverProfit').val(detJson.serverProfit);
+          $('#serverArrears').val(detJson.serverArrears);
+          $('#customName').val(detJson.customName);
+          $('#customTel').val(detJson.customTel);
+          $('#customQq').val(detJson.customQq);
+          $('#customWw').val(detJson.customWw);
+          $('#serverRemark').val(detJson.serverRemark);
           layui.form.render();
         }
       }

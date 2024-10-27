@@ -28,8 +28,8 @@ public class ServerServiceImpl implements ServerService {
     }
 
     @Override
-    public List<ServerDetForm> serverDet(Long prodId) {
-        List<ServerDetForm> serverDet=serverMapper.serverDet(prodId);
+    public List<ServerDetForm> serverDet(Long serverId) {
+        List<ServerDetForm> serverDet=serverMapper.serverDet(serverId);
         return serverDet;
     }
 

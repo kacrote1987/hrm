@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface ServerService {
     PageInfo<ServerListForm> serverList(ServerListForm params);
-    List<ServerDetForm> serverDet(Long prodId);
+    List<ServerDetForm> serverDet(Long serverId);
 }
