@@ -41,13 +41,7 @@ public class UserServiceImpl implements UserService {
             page = params.getPage();
         }
         PageHelper.startPage(page, 10);
-        String type;
-        if(params.getType()==null || params.getType().equals("")){
-            type="dept";
-        }else{
-            type=params.getType();
-        }
-        List<UserListForm> userList=userMapper.userList(type,params);
+        List<UserListForm> userList=userMapper.userList(params);
         return PageInfo.of(userList);
     }
 

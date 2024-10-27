@@ -2,35 +2,35 @@ package com.idcmis.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.idcmis.entity.ServerDetForm;
-import com.idcmis.entity.ServerListForm;
-import com.idcmis.mapper.ServerMapper;
-import com.idcmis.service.ServerService;
+import com.idcmis.entity.CustomerDetForm;
+import com.idcmis.entity.CustomerListForm;
+import com.idcmis.mapper.CustomerMapper;
+import com.idcmis.service.CustomerService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class CustomerServiceImpl implements ServerService {
+public class CustomerServiceImpl implements CustomerService {
     @Resource
-    ServerMapper serverMapper;
+    CustomerMapper customerMapper;
 
     @Override
-    public PageInfo<ServerListForm> serverList(ServerListForm params) {
+    public PageInfo<CustomerListForm> customerList(CustomerListForm params) {
         Integer page = 0;
         if(params.getPage() != null){
             page = params.getPage();
         }
         PageHelper.startPage(page, 10);
-        List<ServerListForm> serverList = serverMapper.serverList(params);
-        return PageInfo.of(serverList);
+        List<CustomerListForm> customerList = customerMapper.customerList(params);
+        return PageInfo.of(customerList);
     }
 
     @Override
-    public List<ServerDetForm> serverDet(Long prodId) {
-        List<ServerDetForm> serverDet=serverMapper.serverDet(prodId);
-        return serverDet;
+    public List<CustomerDetForm> customerDet(Long prodId) {
+        List<CustomerDetForm> customerDet=customerMapper.customerDet(prodId);
+        return customerDet;
     }
 
     public static String method (String str){

@@ -111,7 +111,7 @@
       elem: '#test-table-toolbar'
       , id: 'prodReload'
       , method: 'post'
-      , url: '/prod/prodList/' //数据接口
+      , url: '/customer/customerList/' //数据接口
       , response: {
         statusName: 'code',
         statusCode: '200'
@@ -121,13 +121,11 @@
       , cols: [[
         {type: 'checkbox', fixed: 'left', width: '5%'}
         , {type: 'numbers', title: '序号', width: '5%'}
-        , {field: 'prodNum', title: '客户姓名', width: '13%'}
-        , {field: 'updateTime', title: '联系电话', width: '13%'}
-        , {field: 'typeName', title: '客户QQ' , width: '13%'}
-        , {field: 'prodName', title: '旺旺ID', width: '13%'}
-        , {field: 'prodName', title: '服务器IP', width: '13%'}
-        , {field: 'prodName', title: '服务器配置', width: '18%'}
-        , {fixed: 'right', title: '操作', toolbar: '#test-table-toolbar-barDemo', width: '7%'}
+        , {field: 'customName', title: '客户姓名', width: '20%'}
+        , {field: 'customTel', title: '联系电话', width: '20%'}
+        , {field: 'customQq', title: '客户QQ' , width: '20%'}
+        , {field: 'customWw', title: '旺旺ID', width: '20%'}
+        , {fixed: 'right', title: '操作', toolbar: '#test-table-toolbar-barDemo', width: '10%'}
       ]]
       , page: true
       , parseData: function (res) { //将原始数据解析成 table 组件所规定的数据

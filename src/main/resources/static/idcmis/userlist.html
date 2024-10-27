@@ -99,7 +99,7 @@
       elem: '#test-table-toolbar'
       , id: 'prodReload'
       , method: 'post'
-      , url: '/prod/prodList/' //数据接口
+      , url: '/user/userList/' //数据接口
       , response: {
         statusName: 'code',
         statusCode: '200'
@@ -109,10 +109,11 @@
       , cols: [[
         {type: 'checkbox', fixed: 'left', width: '5%'}
         , {type: 'numbers', title: '序号', width: '5%'}
-        , {field: 'typeName', title: '用户类别' , width: '20%'}
-        , {field: 'prodName', title: '用户姓名', width: '20%'}
-        , {field: 'prodNum', title: '登录账号', width: '20%'}
-        , {field: 'prodState', title: '用户状态', width: '20%'}
+        , {field: 'userType', title: '用户类别' , width: '16%'}
+        , {field: 'userName', title: '用户姓名', width: '16%'}
+        , {field: 'userCode', title: '登录账号', width: '16%'}
+        , {field: 'userPwd', title: '登录密码', width: '16%'}
+        , {field: 'userState', title: '用户状态', width: '16%'}
         , {fixed: 'right', title: '操作', toolbar: '#test-table-toolbar-barDemo', width: '10%'}
       ]]
       , page: true

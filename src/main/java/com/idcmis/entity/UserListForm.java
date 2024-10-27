@@ -1,27 +1,29 @@
 package com.idcmis.entity;
 
 public class UserListForm {
-    private String type;
-    private Long deptId;
+    private Long userId;
+    private String userType;
     private String userName;
+    private String userCode;
+    private String userPwd;
     private String userState;
     private Integer page;
     private Integer limit;
 
-    public String getType() {
-        return type;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public Long getDeptId() {
-        return deptId;
+    public String getUserType() {
+        return userType;
     }
 
-    public void setDeptId(Long deptId) {
-        this.deptId = deptId;
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 
     public String getUserName() {
@@ -30,6 +32,22 @@ public class UserListForm {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getUserCode() {
+        return userCode;
+    }
+
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
+    }
+
+    public String getUserPwd() {
+        return userPwd;
+    }
+
+    public void setUserPwd(String userPwd) {
+        this.userPwd = userPwd;
     }
 
     public String getUserState() {

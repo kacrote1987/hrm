@@ -2,9 +2,9 @@ package com.idcmis.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.idcmis.config.Result;
-import com.idcmis.entity.ServerDetForm;
-import com.idcmis.entity.ServerListForm;
-import com.idcmis.service.ServerService;
+import com.idcmis.entity.CustomerDetForm;
+import com.idcmis.entity.CustomerListForm;
+import com.idcmis.service.CustomerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,19 +20,19 @@ import java.util.List;
 @RequestMapping("/customer")
 public class CustomerController {
     @Resource
-    ServerService serverService;
+    CustomerService customerService;
 
     @ApiOperation("客户列表")
     @PostMapping("/customerList")
-    public Result customerList(ServerListForm params){
-        PageInfo<ServerListForm> customerList= serverService.serverList(params);
+    public Result customerList(CustomerListForm params){
+        PageInfo<CustomerListForm> customerList= customerService.customerList(params);
         return Result.success(customerList);
     }
 
     @ApiOperation("客户详细")
     @PostMapping("/customerDet")
     public Result customerDet(@RequestBody Long prodId){
-        List<ServerDetForm> customerDet= serverService.serverDet(prodId);
+        List<CustomerDetForm> customerDet= customerService.customerDet(prodId);
         return Result.success(customerDet);
     }
 }

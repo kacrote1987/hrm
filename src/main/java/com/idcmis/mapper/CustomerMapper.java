@@ -1,7 +1,7 @@
 package com.idcmis.mapper;
 
-import com.idcmis.entity.ServerDetForm;
-import com.idcmis.entity.ServerListForm;
+import com.idcmis.entity.CustomerDetForm;
+import com.idcmis.entity.CustomerListForm;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -9,6 +9,6 @@ import java.util.List;
 
 @Mapper
 public interface CustomerMapper {
-    List<ServerListForm> serverList(@Param("params") ServerListForm params);
-    List<ServerDetForm> serverDet(Long prodId);
+    List<CustomerListForm> customerList(@Param("params") CustomerListForm params);
+    List<CustomerDetForm> customerDet(Long prodId);
 }

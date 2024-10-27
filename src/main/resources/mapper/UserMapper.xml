@@ -2,22 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybaselectByUsernametiselectUsers.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.idcmis.mapper.UserMapper">
     <select id="login" resultType="com.idcmis.entity.LoginForm" >
-        select * from t_user_main where user_code=#{userCode} and user_pwd=#{userPwd} and user_state='1'
+        select * from t_user_main where user_code=#{userCode} and user_pwd=#{userPwd}
     </select>
     <select id="userList" resultType="com.idcmis.entity.UserListForm" >
-        select a.user_id,b.dept_name,a.user_name,a.user_sex,a.user_no,a.user_tel,a.user_cornet,a.user_offcall
-        ,a.user_state from t_sys_user a inner join (select * from t_sys_dept where dept_type=#{type}) b on a.${type}_id=b.dept_id
-         where a.user_state!='离职'
-        <if test="params.deptId!=null and params.deptId!='' and params.deptId!=0">
-            and a.${type}_id=#{params.deptId}
-        </if>
+        select user_id,user_code,user_pwd,user_name,user_type,user_state from t_user_main where 1=1
         <if test="params.userName!=null and params.userName!=''">
             and a.user_name like '%' #{params.userName} '%'
         </if>
         <if test="params.userState!=null and params.userState!=''">
             and a.user_state=#{params.userState}
         </if>
-        order by a.dept_id,a.user_order desc,a.user_no
     </select>
     <select id="selDet" resultType="com.idcmis.entity.UserDetForm">
         select t.user_id,t.user_no,t.user_name,t.user_sex,t.user_tel,t.user_cornet,t.user_offcall,t.user_idcard,t.user_homeaddr,t.user_hometel
