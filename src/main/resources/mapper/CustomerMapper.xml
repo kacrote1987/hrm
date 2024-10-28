@@ -2,9 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybaselectByUsernametiselectUsers.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.idcmis.mapper.CustomerMapper">
     <select id="customerList" resultType="com.idcmis.entity.CustomerListForm" >
-        select custom_id,custom_name,custom_tel,custom_qq,custom_ww from t_custom_main
+        select customer_id,customer_name,customer_tel,customer_qq,customer_ww from t_customer_main where 1=1
+        <if test="params.customerName!=null and params.customerName!=''">
+            and customer_name like '%' #{params.customerName} '%'
+        </if>
+        <if test="params.customerTel!=null and params.customerTel!=''">
+            and customer_tel like '%' #{params.customerTel} '%'
+        </if>
+        <if test="params.customerQq!=null and params.customerQq!=''">
+            and customer_qq like '%' #{params.customerQq} '%'
+        </if>
+        <if test="params.customerWw!=null and params.customerWw!=''">
+            and customer_ww like '%' #{params.customerWw} '%'
+        </if>
     </select>
     <select id="customerDet" resultType="com.idcmis.entity.CustomerDetForm" >
-        select a.prod_id,a.type_id,b.type_name,a.prod_name,a.prod_num,a.update_time,a.prod_state from t_prod_main a where a.prod_id=#{prodId}
+        select customer_id,customer_name,customer_tel,customer_qq,customer_ww from t_customer_main where customer_id=#{customerId}
     </select>
+    <insert id="insertCustomer">
+        insert into t_customer_main(customer_name,customer_tel,customer_qq,customer_ww)
+        values(#{params.customerName},#{params.customerTel},#{params.customerQq},#{params.customerWw})
+    </insert>
+    <update id="updateCustomer">
+        update t_customer_main set customer_name=#{params.customerName},customer_tel=#{params.customerTel},customer_qq=#{params.customerQq}
+        ,customer_ww=#{params.customerWw} where customer_id=#{params.customerId}
+    </update>
+    <delete id="deleteCustomer">
+        delete from t_customer_main where customer_id=#{customerId}
+    </delete>
 </mapper>

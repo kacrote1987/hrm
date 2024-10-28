@@ -28,9 +28,23 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<CustomerDetForm> customerDet(Long prodId) {
-        List<CustomerDetForm> customerDet=customerMapper.customerDet(prodId);
+    public List<CustomerDetForm> customerDet(Long customerId) {
+        List<CustomerDetForm> customerDet=customerMapper.customerDet(customerId);
         return customerDet;
+    }
+
+    @Override
+    public void customerSave(CustomerDetForm params) {
+        if(params.getCustomerId()!=null){
+            customerMapper.updateCustomer(params);
+        }else{
+            customerMapper.insertCustomer(params);
+        }
+    }
+
+    @Override
+    public void customerDel(Long customerId) {
+        customerMapper.deleteCustomer(customerId);
     }
 
     public static String method (String str){

@@ -94,7 +94,7 @@
 
     table.render({
       elem: '#test-table-toolbar'
-      , id: 'prodReload'
+      , id: 'userReload'
       , method: 'post'
       , url: '/user/userList/' //数据接口
       , response: {
@@ -130,7 +130,7 @@
         var typeName = $('#typeName');
         var prodName = $('#prodName');
         var prodState = $('#prodState');
-        table.reload('prodReload', {
+        table.reload('userReload', {
           page: {
             curr: 1 //重新从第 1 页开始
           }
@@ -151,7 +151,7 @@
           layer.open({
             type: 2
             ,title: '新增'
-            ,content: 'prodadd.html'
+            ,content: 'userdet.html?0'
             ,maxmin: true
             ,area: ['1200px', '600px']
           });
@@ -165,8 +165,8 @@
       if (obj.event === 'det') {
         layer.open({
           type: 2
-          , title: '产品详细'
-          , content: 'proddet.html?' + data.prodId
+          , title: '用户详细'
+          , content: 'userdet.html?' + data.userId
           , maxmin: true
           , area: ['1200px', '600px']
         });
@@ -174,8 +174,8 @@
         layer.confirm('是否删除？', {
           btn: ['是','否'] //按钮
         }, function(){
-          postdata(null,"/prod/offLine?prodId=" + data.prodId,function () {
-            table.reload('prodReload');layer.msg("已下架");});
+          postdata(null,"/user/userDel?userId=" + data.userId,function () {
+            table.reload('userReload');layer.msg("已删除");});
         });
       }
     });

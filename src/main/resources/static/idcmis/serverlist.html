@@ -144,10 +144,10 @@
         , {field: 'serverCost', title: '成本', width: '6%'}
         , {field: 'serverProfit', title: '利润', width: '6%'}
         , {field: 'serverArrears', title: '欠款', width: '6%'}
-        , {field: 'customName', title: '客户姓名', width: '6%'}
-        , {field: 'customTel', title: '联系电话', width: '6%'}
-        , {field: 'customQq', title: '客户QQ', width: '6%'}
-        , {field: 'customWw', title: '旺旺ID', width: '6%'}
+        , {field: 'customerName', title: '客户姓名', width: '6%'}
+        , {field: 'customerTel', title: '联系电话', width: '6%'}
+        , {field: 'customerQq', title: '客户QQ', width: '6%'}
+        , {field: 'customerWw', title: '旺旺ID', width: '6%'}
         , {field: 'serverRemark', title: '备注信息', width: '6%'}
         , {fixed: 'right', title: '操作', toolbar: '#test-table-toolbar-barDemo', width: '7%'}
       ]]
@@ -198,6 +198,15 @@
             ,content: 'serverdet.html?0'
             ,maxmin: true
             ,area: ['1200px', '600px']
+          });
+          break;
+        case 'import':
+          layer.open({
+            type: 2
+            ,title: '导入'
+            ,content: 'tblimp.html' // + data.relatId
+            ,maxmin: true
+            ,area: ['700px', '500px']
           });
           break;
       };

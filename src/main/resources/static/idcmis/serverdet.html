@@ -140,14 +140,14 @@
                     <div class="layui-col-lg6">
                       <label class="layui-form-label">客户姓名</label>
                       <div class="layui-input-block">
-                        <input id="customName" type="text" lay-verify="required" placeholder=""
+                        <input id="customerName" type="text" lay-verify="required" placeholder=""
                                autocomplete="off" class="layui-input">
                       </div>
                     </div>
                     <div class="layui-col-lg6">
                       <label class="layui-form-label">联系电话</label>
                       <div class="layui-input-block">
-                        <input id="customTel" type="text" lay-verify="required" placeholder=""
+                        <input id="customerTel" type="text" lay-verify="required" placeholder=""
                                autocomplete="off" class="layui-input">
                       </div>
                     </div>
@@ -156,14 +156,14 @@
                     <div class="layui-col-lg6">
                       <label class="layui-form-label">客户QQ</label>
                       <div class="layui-input-block">
-                        <input id="customQq" type="text" lay-verify="required" placeholder=""
+                        <input id="customerQq" type="text" lay-verify="required" placeholder=""
                                autocomplete="off" class="layui-input">
                       </div>
                     </div>
                     <div class="layui-col-lg6">
                       <label class="layui-form-label">旺旺ID</label>
                       <div class="layui-input-block">
-                        <input id="customWw" type="text" lay-verify="required" placeholder=""
+                        <input id="customerWw" type="text" lay-verify="required" placeholder=""
                                autocomplete="off" class="layui-input">
                       </div>
                     </div>
@@ -180,7 +180,6 @@
           </div>
         </div>
         <div class="layui-col-md2">
-          123
         </div>
       </div>
     </div>
@@ -213,7 +212,6 @@
 
     form.render(null, 'component-form-group');
     var serverId = window.location.search.substring(1, window.location.search.length);
-    alert(serverId);
     $.ajax({
       type: "post",
       url: "/server/serverDet",
@@ -238,10 +236,10 @@
           $('#serverCost').val(detJson.serverCost);
           $('#serverProfit').val(detJson.serverProfit);
           $('#serverArrears').val(detJson.serverArrears);
-          $('#customName').val(detJson.customName);
-          $('#customTel').val(detJson.customTel);
-          $('#customQq').val(detJson.customQq);
-          $('#customWw').val(detJson.customWw);
+          $('#customerName').val(detJson.customerName);
+          $('#customerTel').val(detJson.customerTel);
+          $('#customerQq').val(detJson.customerQq);
+          $('#customerWw').val(detJson.customerWw);
           $('#serverRemark').val(detJson.serverRemark);
           layui.form.render();
         }
@@ -249,6 +247,31 @@
     });
 
   });
+
+  function save(){
+    var params={};
+    params.serverId=$('#serverId').val();
+    params.serverRoom=$('#serverRoom').val();
+    params.serverCabinet=$('#serverCabinet').val();
+    params.serverNumber=$('#serverNumber').val();
+    params.serverName=$('#serverName').val();
+    params.serverConfig=$('#serverConfig').val();
+    params.serverIp=$('#serverIp').val();
+    params.backupIp=$('#backupIp').val();
+    params.serverState=$('#serverState').val();
+    params.beginDate=$('#beginDate').val();
+    params.endDate=$('#endDate').val();
+    params.serverPrice=$('#serverPrice').val();
+    params.serverCost=$('#serverCost').val();
+    params.serverProfit=$('#serverProfit').val();
+    params.serverArrears=$('#serverArrears').val();
+    params.customerName=$('#customerName').val();
+    params.customerTel=$('#customerTel').val();
+    params.customerQq=$('#customerQq').val();
+    params.customerWw=$('#customerWw').val();
+    params.serverRemark=$('#serverRemark').val();
+    postdata(params,"/server/serverSave",function () {layer.msg("保存成功！");});
+  }
 </script>
 </body>
 </html>

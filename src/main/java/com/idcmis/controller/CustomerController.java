@@ -7,10 +7,7 @@ import com.idcmis.entity.CustomerListForm;
 import com.idcmis.service.CustomerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -31,8 +28,22 @@ public class CustomerController {
 
     @ApiOperation("客户详细")
     @PostMapping("/customerDet")
-    public Result customerDet(@RequestBody Long prodId){
-        List<CustomerDetForm> customerDet= customerService.customerDet(prodId);
+    public Result customerDet(@RequestBody Long customerId){
+        List<CustomerDetForm> customerDet= customerService.customerDet(customerId);
         return Result.success(customerDet);
+    }
+
+    @ApiOperation("客户保存")
+    @PostMapping("/customerSave")
+    public Result customerSave(@RequestBody CustomerDetForm params){
+        customerService.customerSave(params);
+        return Result.success();
+    }
+
+    @ApiOperation("客户删除")
+    @PostMapping("/customerDel")
+    public Result customerDel(@RequestParam Long customerId){
+        customerService.customerDel(customerId);
+        return Result.success();
     }
 }

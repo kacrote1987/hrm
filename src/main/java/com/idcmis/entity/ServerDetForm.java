@@ -16,10 +16,10 @@ public class ServerDetForm {
     private String serverCost;
     private String serverProfit;
     private String serverArrears;
-    private String customName;
-    private String customTel;
-    private String customQq;
-    private String customWw;
+    private String customerName;
+    private String customerTel;
+    private String customerQq;
+    private String customerWw;
     private String serverRemark;
 
     public Long getServerId() {
@@ -142,36 +142,36 @@ public class ServerDetForm {
         this.serverArrears = serverArrears;
     }
 
-    public String getCustomName() {
-        return customName;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setCustomName(String customName) {
-        this.customName = customName;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
-    public String getCustomTel() {
-        return customTel;
+    public String getCustomerTel() {
+        return customerTel;
     }
 
-    public void setCustomTel(String customTel) {
-        this.customTel = customTel;
+    public void setCustomerTel(String customerTel) {
+        this.customerTel = customerTel;
     }
 
-    public String getCustomQq() {
-        return customQq;
+    public String getCustomerQq() {
+        return customerQq;
     }
 
-    public void setCustomQq(String customQq) {
-        this.customQq = customQq;
+    public void setCustomerQq(String customerQq) {
+        this.customerQq = customerQq;
     }
 
-    public String getCustomWw() {
-        return customWw;
+    public String getCustomerWw() {
+        return customerWw;
     }
 
-    public void setCustomWw(String customWw) {
-        this.customWw = customWw;
+    public void setCustomerWw(String customerWw) {
+        this.customerWw = customerWw;
     }
 
     public String getServerRemark() {

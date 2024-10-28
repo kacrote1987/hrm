@@ -33,6 +33,20 @@ public class ServerServiceImpl implements ServerService {
         return serverDet;
     }
 
+    @Override
+    public void serverSave(ServerDetForm params) {
+        if(params.getServerId()!=null){
+            serverMapper.updateServer(params);
+        }else{
+            serverMapper.insertServer(params);
+        }
+    }
+
+    @Override
+    public void serverDel(Long serverId) {
+        serverMapper.deleteServer(serverId);
+    }
+
     public static String method (String str){
         String pos="";
         if(str!=null && str!=""){

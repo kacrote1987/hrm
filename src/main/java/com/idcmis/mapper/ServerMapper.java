@@ -10,4 +10,7 @@ import java.util.List;
 public interface ServerMapper {
     List<ServerListForm> serverList(@Param("params") ServerListForm params);
     List<ServerDetForm> serverDet(Long serverId);
+    boolean insertServer(@Param("params") ServerDetForm params);
+    boolean updateServer(@Param("params") ServerDetForm params);
+    boolean deleteServer(Long serverId);
 }

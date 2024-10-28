@@ -1,52 +1,52 @@
 package com.idcmis.entity;
 
 public class CustomerListForm {
-    private Long customId;
-    private String customName;
-    private String customTel;
-    private String customQq;
-    private String customWw;
+    private Long customerId;
+    private String customerName;
+    private String customerTel;
+    private String customerQq;
+    private String customerWw;
     private Integer page;
     private Integer limit;
 
-    public Long getCustomId() {
-        return customId;
+    public Long getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomId(Long customId) {
-        this.customId = customId;
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 
-    public String getCustomName() {
-        return customName;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setCustomName(String customName) {
-        this.customName = customName;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
-    public String getCustomTel() {
-        return customTel;
+    public String getCustomerTel() {
+        return customerTel;
     }
 
-    public void setCustomTel(String customTel) {
-        this.customTel = customTel;
+    public void setCustomerTel(String customerTel) {
+        this.customerTel = customerTel;
     }
 
-    public String getCustomQq() {
-        return customQq;
+    public String getCustomerQq() {
+        return customerQq;
     }
 
-    public void setCustomQq(String customQq) {
-        this.customQq = customQq;
+    public void setCustomerQq(String customerQq) {
+        this.customerQq = customerQq;
     }
 
-    public String getCustomWw() {
-        return customWw;
+    public String getCustomerWw() {
+        return customerWw;
     }
 
-    public void setCustomWw(String customWw) {
-        this.customWw = customWw;
+    public void setCustomerWw(String customerWw) {
+        this.customerWw = customerWw;
     }
 
     public Integer getPage() {

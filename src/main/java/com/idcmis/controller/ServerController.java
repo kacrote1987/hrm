@@ -31,4 +31,18 @@ public class ServerController {
         List<ServerDetForm> serverDet= serverService.serverDet(serverId);
         return Result.success(serverDet);
     }
+
+    @ApiOperation("服务器保存")
+    @PostMapping("/serverSave")
+    public Result serverSave(@RequestBody ServerDetForm params){
+        serverService.serverSave(params);
+        return Result.success();
+    }
+
+    @ApiOperation("服务器删除")
+    @PostMapping("/serverDel")
+    public Result serverDel(@RequestParam Long customerId){
+        serverService.serverDel(customerId);
+        return Result.success();
+    }
 }
