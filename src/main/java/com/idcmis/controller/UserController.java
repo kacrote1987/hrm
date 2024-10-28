@@ -6,10 +6,7 @@ import com.idcmis.service.UserService;
 import com.idcmis.config.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -41,5 +38,19 @@ public class UserController {
     public Result userDet(@RequestBody Long userId){
         List<UserDetForm> userDet=userService.userDet(userId);
         return Result.success(userDet);
+    }
+
+    @ApiOperation("用户保存")
+    @PostMapping("/userSave")
+    public Result userSave(@RequestBody UserDetForm params){
+        userService.userSave(params);
+        return Result.success();
+    }
+
+    @ApiOperation("客户删除")
+    @PostMapping("/userDel")
+    public Result userDel(@RequestParam Long userId){
+        userService.userDel(userId);
+        return Result.success();
     }
 }

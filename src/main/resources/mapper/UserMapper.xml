@@ -14,9 +14,17 @@
         </if>
     </select>
     <select id="selDet" resultType="com.idcmis.entity.UserDetForm">
-        select t.user_id,t.user_no,t.user_name,t.user_sex,t.user_tel,t.user_cornet,t.user_offcall,t.user_idcard,t.user_homeaddr,t.user_hometel
-        ,t.user_edu,t.user_degree,t.user_school,t.user_major,t.user_polity,t.user_politime,t.user_prop,t.user_jointime,t.dept_id,t.user_duty
-        ,t.part_id,t.majo_id,t.user_prof,t.user_topcert,t.user_CPK,t.user_paymonth,(case when length(t.user_idcard)='18' then year(SYSDATE())-SUBSTR(t.user_idcard,7,4)
-        else null end) as user_age,t.user_offaddr,t.user_note,t.role_name,t.user_state from t_sys_user t where t.user_id = #{userId}
+        select user_id,user_name,user_code,user_pwd,user_state from t_user_main where user_id = #{userId}
     </select>
+    <insert id="insertUser">
+        insert into t_user_main(user_name,user_code,user_pwd,user_state)
+        values(#{params.userName},#{params.userCode},#{params.userPwd},#{params.userState})
+    </insert>
+    <update id="updateUser">
+        update t_user_main set user_code=#{params.userCode},user_pwd=#{params.userPwd},user_name=#{params.userName}
+        ,user_type=#{params.userType},user_state=#{params.userState} where user_id=#{params.userId}
+    </update>
+    <delete id="deleteUser">
+        delete from t_user_main where user_id=#{userId}
+    </delete>
 </mapper>

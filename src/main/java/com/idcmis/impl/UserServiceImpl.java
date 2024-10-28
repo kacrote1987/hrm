@@ -54,6 +54,20 @@ public class UserServiceImpl implements UserService {
         return userDet;
     }
 
+    @Override
+    public void userSave(UserDetForm params) {
+        if(params.getUserId()!=null){
+            userMapper.updateUser(params);
+        }else{
+            userMapper.insertUser(params);
+        }
+    }
+
+    @Override
+    public void userDel(Long userId) {
+        userMapper.deleteUser(userId);
+    }
+
     public static String method (String str){
         String pos1;
         String pos2=null;

@@ -13,4 +13,7 @@ public interface UserMapper {
     LoginForm login(String userCode, String userPwd);
     List<UserListForm> userList(@Param("params") UserListForm params);
     List<UserDetForm> selDet(Long userId);
+    boolean insertUser(@Param("params") UserDetForm params);
+    boolean updateUser(@Param("params") UserDetForm params);
+    boolean deleteUser(Long userId);
 }

@@ -19,39 +19,48 @@
         </div>
         <div class="layui-col-md8">
           <div class="layui-card">
-            <input id="customerId" type="text" placeholder="" autocomplete="off"
+            <input id="userId" type="text" placeholder="" autocomplete="off"
                    class="layui-input" style="display: none">
             <div class="layui-card-body">
               <form class="layui-form" action="" lay-filter="component-form-element">
                 <div class="layui-row layui-col-space10 layui-form-item">
                   <div class="layui-row layui-col-space10 layui-form-item">
                     <div class="layui-col-lg6">
-                      <label class="layui-form-label">客户姓名</label>
+                      <label class="layui-form-label">用户类别</label>
                       <div class="layui-input-block">
-                        <input id="customerName" type="text" lay-verify="required" placeholder=""
+                        <input id="userType" type="text" lay-verify="required" placeholder=""
                                autocomplete="off" class="layui-input">
                       </div>
                     </div>
                     <div class="layui-col-lg6">
-                      <label class="layui-form-label">联系电话</label>
+                      <label class="layui-form-label">用户姓名</label>
                       <div class="layui-input-block">
-                        <input id="customerTel" type="text" lay-verify="required" placeholder=""
+                        <input id="userName" type="text" lay-verify="required" placeholder=""
                                autocomplete="off" class="layui-input">
                       </div>
                     </div>
                   </div>
                   <div class="layui-row layui-col-space10 layui-form-item">
                     <div class="layui-col-lg6">
-                      <label class="layui-form-label">客户QQ</label>
+                      <label class="layui-form-label">登录账号</label>
                       <div class="layui-input-block">
-                        <input id="customerQq" type="text" lay-verify="required" placeholder=""
+                        <input id="userCode" type="text" lay-verify="required" placeholder=""
                                autocomplete="off" class="layui-input">
                       </div>
                     </div>
                     <div class="layui-col-lg6">
-                      <label class="layui-form-label">旺旺ID</label>
+                      <label class="layui-form-label">登录密码</label>
                       <div class="layui-input-block">
-                        <input id="customerWw" type="text" lay-verify="required" placeholder=""
+                        <input id="userPwd" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="layui-row layui-col-space10 layui-form-item">
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">用户状态</label>
+                      <div class="layui-input-block">
+                        <input id="userState" type="text" lay-verify="required" placeholder=""
                                autocomplete="off" class="layui-input">
                       </div>
                     </div>
@@ -93,21 +102,21 @@
             , table = layui.table;
 
     form.render(null, 'component-form-group');
-    var customerId = window.location.search.substring(1, window.location.search.length);
+    var userId = window.location.search.substring(1, window.location.search.length);
     $.ajax({
       type: "post",
-      url: "/customer/customerDet",
+      url: "/user/userDet",
       contentType: "application/json;charset=utf-8",
       dataType: "json",
-      data: customerId,
+      data: userId,
       success: function (detObj) {
         if (detObj.msg == "success") {
           var detJson = detObj.data[0];
-          $('#customerId').val(detJson.customerId);
-          $('#customerName').val(detJson.customerName);
-          $('#customerTel').val(detJson.customerTel);
-          $('#customerQq').val(detJson.customerQq);
-          $('#customerWw').val(detJson.customerWw);
+          $('#userId').val(detJson.userId);
+          $('#userName').val(detJson.userName);
+          $('#userCode').val(detJson.userCode);
+          $('#userPwd').val(detJson.userPwd);
+          $('#userState').val(detJson.userState);
           layui.form.render();
         }
       }
@@ -116,12 +125,12 @@
 
   function save(){
     var params={};
-    params.customerId=$('#customerId').val();
-    params.customerName=$('#customerName').val();
-    params.customerTel=$('#customerTel').val();
-    params.customerQq=$('#customerQq').val();
-    params.customerWw=$('#customerWw').val();
-    postdata(params,"/customer/customerSave",function () {layer.msg("保存成功！");});
+    params.userId=$('#userId').val();
+    params.userName=$('#userName').val();
+    params.userCode=$('#userCode').val();
+    params.userPwd=$('#userPwd').val();
+    params.userState=$('#userState').val();
+    postdata(params,"/user/userSave",function () {layer.msg("保存成功！");});
   }
 </script>
 </body>
