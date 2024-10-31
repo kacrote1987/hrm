@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybaselectByUsernametiselectUsers.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.idcmis.mapper.UserMapper">
-    <select id="login" resultType="com.idcmis.entity.LoginForm" >
+<mapper namespace="com.hrm.mapper.UserMapper">
+    <select id="login" resultType="com.hrm.entity.LoginForm" >
         select * from t_user_main where user_code=#{userCode} and user_pwd=#{userPwd}
     </select>
-    <select id="userList" resultType="com.idcmis.entity.UserListForm" >
+    <select id="userList" resultType="com.hrm.entity.UserListForm" >
         select user_id,user_code,user_pwd,user_name,user_type,user_state from t_user_main where 1=1
         <if test="params.userName!=null and params.userName!=''">
             and a.user_name like '%' #{params.userName} '%'
@@ -13,7 +13,7 @@
             and a.user_state=#{params.userState}
         </if>
     </select>
-    <select id="selDet" resultType="com.idcmis.entity.UserDetForm">
+    <select id="selDet" resultType="com.hrm.entity.UserDetForm">
         select user_id,user_name,user_code,user_pwd,user_state from t_user_main where user_id = #{userId}
     </select>
     <insert id="insertUser">

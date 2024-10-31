@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybaselectByUsernametiselectUsers.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.idcmis.mapper.ServerMapper">
-    <select id="serverList" resultType="com.idcmis.entity.ServerListForm" >
+<mapper namespace="com.hrm.mapper.ServerMapper">
+    <select id="serverList" resultType="com.hrm.entity.ServerListForm" >
         select a.server_id,a.server_room,a.server_cabinet,a.server_number,a.server_name,a.server_config,a.server_ip,a.backup_ip
         ,a.server_state,a.begin_date,a.end_date,a.server_price,a.server_cost,a.server_profit,a.server_arrears,b.customer_name
         ,b.customer_tel,b.customer_qq,b.customer_ww,a.server_remark from t_server_main a inner join t_customer_main b on
@@ -19,7 +19,7 @@
             and a.server_state = #{params.serverState}
         </if>
     </select>
-    <select id="serverDet" resultType="com.idcmis.entity.ServerDetForm" >
+    <select id="serverDet" resultType="com.hrm.entity.ServerDetForm" >
         select a.server_id,a.server_room,a.server_cabinet,a.server_number,a.server_name,a.server_config,a.server_ip,a.backup_ip
         ,a.server_state,a.begin_date,a.end_date,a.server_price,a.server_cost,a.server_profit,a.server_arrears,b.customer_name
         ,b.customer_tel,b.customer_qq,b.customer_ww,a.server_remark from t_server_main a inner join t_customer_main b

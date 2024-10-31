@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybaselectByUsernametiselectUsers.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.idcmis.mapper.CustomerMapper">
-    <select id="customerList" resultType="com.idcmis.entity.CustomerListForm" >
+<mapper namespace="com.hrm.mapper.CustomerMapper">
+    <select id="customerList" resultType="com.hrm.entity.CustomerListForm" >
         select customer_id,customer_name,customer_tel,customer_qq,customer_ww from t_customer_main where 1=1
         <if test="params.customerName!=null and params.customerName!=''">
             and customer_name like '%' #{params.customerName} '%'
@@ -16,7 +16,7 @@
             and customer_ww like '%' #{params.customerWw} '%'
         </if>
     </select>
-    <select id="customerDet" resultType="com.idcmis.entity.CustomerDetForm" >
+    <select id="customerDet" resultType="com.hrm.entity.CustomerDetForm" >
         select customer_id,customer_name,customer_tel,customer_qq,customer_ww from t_customer_main where customer_id=#{customerId}
     </select>
     <insert id="insertCustomer">
