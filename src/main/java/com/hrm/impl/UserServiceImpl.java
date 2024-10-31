@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void userSave(UserDetForm params) {
-        if(params.getUserId()!=null){
+        if(params.getUserId()!=0L){
             userMapper.updateUser(params);
         }else{
             userMapper.insertUser(params);
@@ -65,7 +65,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void userDel(Long userId) {
-        userMapper.deleteUser(userId);
+        String checkAdmin = userMapper.checkAdmin(userId);
+        if(!checkAdmin.equals("admin")){
+            userMapper.deleteUser(userId);
+        }
     }
 
     public static String method (String str){

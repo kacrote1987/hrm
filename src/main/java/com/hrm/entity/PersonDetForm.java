@@ -2,6 +2,8 @@ package com.hrm.entity;
 
 public class PersonDetForm {
     private Long personId;
+    private Long compId;
+    private String compName;
     private Long deptId;
     private String deptName;
     private String personNo;
@@ -20,6 +22,22 @@ public class PersonDetForm {
 
     public void setPersonId(Long personId) {
         this.personId = personId;
+    }
+
+    public Long getCompId() {
+        return compId;
+    }
+
+    public void setCompId(Long compId) {
+        this.compId = compId;
+    }
+
+    public String getCompName() {
+        return compName;
+    }
+
+    public void setCompName(String compName) {
+        this.compName = compName;
     }
 
     public Long getDeptId() {

@@ -17,9 +17,9 @@
     <div class="layui-form layui-card-header layuiadmin-card-header-auto">
       <div class="layui-form-item">
         <div class="layui-inline">
-          <label class="layui-form-label">所属部门</label>
+          <label class="layui-form-label">培训主题</label>
           <div class="layui-input-block">
-            <input type="text" id="deptName" placeholder="请输入" autocomplete="off"
+            <input type="text" id="trainTheme" placeholder="请输入" autocomplete="off"
                    class="layui-input">
           </div>
         </div>
@@ -33,10 +33,11 @@
         <div class="layui-inline">
           <label class="layui-form-label">状态</label>
           <div class="layui-input-block">
-            <select id="personState">
+            <select id="trainState">
               <option value="">全部</option>
-              <option value="在职">在职</option>
-              <option value="离职">离职</option>
+              <option value="报名中">报名中</option>
+              <option value="进行中">进行中</option>
+              <option value="已结束">已结束</option>
             </select>
           </div>
         </div>
@@ -91,9 +92,9 @@
 
     table.render({
       elem: '#test-table-toolbar'
-      , id: 'personReload'
+      , id: 'trainReload'
       , method: 'post'
-      , url: '/person/personList/' //数据接口
+      , url: '/busin/trainList/' //数据接口
       , response: {
         statusName: 'code',
         statusCode: '200'
@@ -103,14 +104,11 @@
       , cols: [[
         {type: 'checkbox', fixed: 'left', width: '5%'}
         , {type: 'numbers', title: '序号', width: '5%'}
-        , {field: 'deptName', title: '所属部门', width: '10%'}
-        , {field: 'personNo', title: '编号', width: '10%'}
-        , {field: 'personName', title: '姓名', width: '10%'}
-        , {field: 'personSex', title: '姓别', width: '10%'}
-        , {field: 'personTel', title: '电话', width: '10%'}
-        , {field: 'personDegree', title: '学历' , width: '10%'}
-        , {field: 'personPolity', title: '政治面貌' , width: '10%'}
-        , {field: 'personState', title: '状态', width: '10%'}
+        , {field: 'trainTheme', title: '培训主题', width: '16%'}
+        , {field: 'trainTime', title: '培训时间', width: '16%'}
+        , {field: 'personNo', title: '编号', width: '16%'}
+        , {field: 'personName', title: '姓名', width: '16%'}
+        , {field: 'trainState', title: '培训状态', width: '16%'}
         , {fixed: 'right', title: '操作', toolbar: '#test-table-toolbar-barDemo', width: '10%'}
       ]]
       , page: true
@@ -127,17 +125,17 @@
     //执行重载
     var $ = layui.$, active = {
       reload: function () {
-        var deptName = $('#deptName');
+        var trainTheme = $('#trainTheme');
         var personName = $('#personName');
-        var personState = $('#personState');
-        table.reload('personReload', {
+        var trainState = $('#trainState');
+        table.reload('trainReload', {
           page: {
             curr: 1 //重新从第 1 页开始
           }
           , where: {
-            deptName: deptName.val(),
+            trainTheme: trainTheme.val(),
             personName: personName.val(),
-            personState: personState.val()
+            trainState: trainState.val()
           }
         }, 'data');
       }
@@ -151,7 +149,7 @@
           layer.open({
             type: 2
             ,title: '新增'
-            ,content: 'persondet.html?0'
+            ,content: 'traindet.html?0'
             ,maxmin: true
             ,area: ['1200px', '600px']
           });
@@ -165,8 +163,8 @@
       if (obj.event === 'det') {
         layer.open({
           type: 2
-          , title: '客户详细'
-          , content: 'persondet.html?' + data.personId
+          , title: '培训详细'
+          , content: 'traindet.html?' + data.trainId
           , maxmin: true
           , area: ['1200px', '600px']
         });
@@ -174,8 +172,8 @@
         layer.confirm('是否删除？', {
           btn: ['是','否'] //按钮
         }, function(){
-          postdata(null,"/customer/customerDel?customerId=" + data.customerId,function () {
-            table.reload('personReload');layer.msg("已删除");});
+          postdata(null,"/busin/trainDel?trainId=" + data.customerId,function () {
+            table.reload('trainReload');layer.msg("已删除");});
         });
       }
     });

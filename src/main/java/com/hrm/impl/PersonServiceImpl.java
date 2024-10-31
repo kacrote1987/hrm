@@ -34,18 +34,29 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public void personAdd(PersonDetForm params) {
-        personMapper.insertPerson(params);
-    }
-
-    @Override
-    public void personEdit(PersonDetForm params) {
-        personMapper.updatePerson(params);
+    public void personSave(PersonDetForm params) {
+        if(params.getPersonId()!=0L){
+            personMapper.updatePerson(params);
+        }else{
+            personMapper.insertPerson(params);
+        }
     }
 
     @Override
     public void personDel(Long personId) {
         personMapper.deletePerson(personId);
+    }
+
+    @Override
+    public List<PersonDetForm> compDict() {
+        List<PersonDetForm> compDict=personMapper.compDict();
+        return compDict;
+    }
+
+    @Override
+    public List<PersonDetForm> deptDict() {
+        List<PersonDetForm> deptDict=personMapper.deptDict();
+        return deptDict;
     }
 
     public static String method (String str){

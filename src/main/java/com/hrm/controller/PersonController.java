@@ -28,22 +28,15 @@ public class PersonController {
 
     @ApiOperation("人员详细")
     @PostMapping("/personDet")
-    public Result personDet(@RequestParam Long personId){
+    public Result personDet(@RequestBody Long personId){
         List<PersonDetForm> personDet= personService.personDet(personId);
         return Result.success(personDet);
     }
 
-    @ApiOperation("人员新增")
-    @PostMapping("/personAdd")
-    public Result personAdd(@RequestBody PersonDetForm params){
-        personService.personAdd(params);
-        return Result.success();
-    }
-
-    @ApiOperation("人员编辑")
-    @PostMapping("/personEdit")
-    public Result personEdit(@RequestBody PersonDetForm params){
-        personService.personEdit(params);
+    @ApiOperation("人员保存")
+    @PostMapping("/personSave")
+    public Result personSave(@RequestBody PersonDetForm params){
+        personService.personSave(params);
         return Result.success();
     }
 
@@ -52,5 +45,19 @@ public class PersonController {
     public Result personDel(@RequestParam Long personId){
         personService.personDel(personId);
         return Result.success();
+    }
+
+    @ApiOperation("公司字典")
+    @PostMapping("/compDict")
+    public Result compDict(){
+        List<PersonDetForm> compDict= personService.compDict();
+        return Result.success(compDict);
+    }
+
+    @ApiOperation("部门字典")
+    @PostMapping("/deptDict")
+    public Result deptDict(){
+        List<PersonDetForm> deptDict= personService.deptDict();
+        return Result.success(deptDict);
     }
 }

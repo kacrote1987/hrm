@@ -9,7 +9,8 @@ import java.util.List;
 public interface PersonService {
     PageInfo<PersonListForm> personList(PersonListForm params);
     List<PersonDetForm> personDet(Long personId);
-    void personAdd(PersonDetForm params);
-    void personEdit(PersonDetForm params);
+    void personSave(PersonDetForm params);
     void personDel(Long personId);
+    List<PersonDetForm> compDict();
+    List<PersonDetForm> deptDict();
 }

@@ -16,4 +16,5 @@ public interface UserMapper {
     boolean insertUser(@Param("params") UserDetForm params);
     boolean updateUser(@Param("params") UserDetForm params);
     boolean deleteUser(Long userId);
+    String checkAdmin(Long userId);
 }

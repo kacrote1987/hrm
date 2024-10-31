@@ -26,12 +26,21 @@
                 <div class="layui-row layui-col-space10 layui-form-item">
                   <div class="layui-row layui-col-space10 layui-form-item">
                     <div class="layui-col-lg6">
-                      <label class="layui-form-label">所属部门</label>
+                      <label class="layui-form-label">培训主题</label>
                       <div class="layui-input-block">
-                        <input id="deptName" type="text" lay-verify="required" placeholder=""
+                        <input id="trainTheme" type="text" lay-verify="required" placeholder=""
                                autocomplete="off" class="layui-input">
                       </div>
                     </div>
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">培训时间</label>
+                      <div class="layui-input-block">
+                        <input id="trainTime" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="layui-row layui-col-space10 layui-form-item">
                     <div class="layui-col-lg6">
                       <label class="layui-form-label">编号</label>
                       <div class="layui-input-block">
@@ -39,8 +48,6 @@
                                autocomplete="off" class="layui-input">
                       </div>
                     </div>
-                  </div>
-                  <div class="layui-row layui-col-space10 layui-form-item">
                     <div class="layui-col-lg6">
                       <label class="layui-form-label">姓名</label>
                       <div class="layui-input-block">
@@ -48,61 +55,17 @@
                                autocomplete="off" class="layui-input">
                       </div>
                     </div>
-                    <div class="layui-col-lg6">
-                      <label class="layui-form-label">性别</label>
-                      <div class="layui-input-block">
-                        <input id="personSex" type="text" lay-verify="required" placeholder=""
-                               autocomplete="off" class="layui-input">
-                      </div>
-                    </div>
                   </div>
                   <div class="layui-row layui-col-space10 layui-form-item">
                     <div class="layui-col-lg6">
-                      <label class="layui-form-label">电话</label>
+                      <label class="layui-form-label">培训状态</label>
                       <div class="layui-input-block">
-                        <input id="personTel" type="text" lay-verify="required" placeholder=""
-                               autocomplete="off" class="layui-input">
-                      </div>
-                    </div>
-                    <div class="layui-col-lg6">
-                      <label class="layui-form-label">地址</label>
-                      <div class="layui-input-block">
-                        <input id="personAddr" type="text" lay-verify="required" placeholder=""
-                               autocomplete="off" class="layui-input">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="layui-row layui-col-space10 layui-form-item">
-                    <div class="layui-col-lg6">
-                      <label class="layui-form-label">学历</label>
-                      <div class="layui-input-block">
-                        <input id="personDegree" type="text" lay-verify="required" placeholder=""
-                               autocomplete="off" class="layui-input">
-                      </div>
-                    </div>
-                    <div class="layui-col-lg6">
-                      <label class="layui-form-label">政治面貌</label>
-                      <div class="layui-input-block">
-                        <input id="personPolity" type="text" lay-verify="required" placeholder=""
-                               autocomplete="off" class="layui-input">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="layui-row layui-col-space10 layui-form-item">
-                    <div class="layui-col-lg6">
-                      <label class="layui-form-label">学历</label>
-                      <div class="layui-input-block">
-                        <input id="personState" type="text" lay-verify="required" placeholder=""
-                               autocomplete="off" class="layui-input">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="layui-row layui-col-space10 layui-form-item">
-                    <div class="layui-col-lg6">
-                      <label class="layui-form-label">备注</label>
-                      <div class="layui-input-block">
-                        <input id="personNote" type="text" lay-verify="required" placeholder=""
-                               autocomplete="off" class="layui-input">
+                        <select id="trainState">
+                          <option value="">全部</option>
+                          <option value="报名中">报名中</option>
+                          <option value="进行中">进行中</option>
+                          <option value="已结束">已结束</option>
+                        </select>
                       </div>
                     </div>
                   </div>
@@ -146,16 +109,18 @@
     var personId = window.location.search.substring(1, window.location.search.length);
     $.ajax({
       type: "post",
-      url: "/person/personDet",
+      url: "/busin/trainDet",
       contentType: "application/json;charset=utf-8",
       dataType: "json",
       data: personId,
       success: function (detObj) {
         if (detObj.msg == "success") {
           var detJson = detObj.data[0];
-          $('#personId').val(detJson.personId);
+          $('#trainTheme').val(detJson.trainTheme);
+          $('#trainTime').val(detJson.trainTime);
+          $('#personNo').val(detJson.personNo);
           $('#personName').val(detJson.personName);
-          $('#personTel').val(detJson.personTel);
+          $('#trainState').val(detJson.trainState);
           layui.form.render();
         }
       }
@@ -164,10 +129,12 @@
 
   function save(){
     var params={};
-    params.personId=$('#personId').val();
+    params.trainTheme=$('#trainTheme').val();
+    params.trainTime=$('#trainTime').val();
+    params.personNo=$('#personNo').val();
     params.personName=$('#personName').val();
-    params.personTel=$('#personTel').val();
-    postdata(params,"/person/personSave",function () {layer.msg("保存成功！");});
+    params.trainState=$('#trainState').val();
+    postdata(params,"/busin/trainEdit",function () {layer.msg("保存成功！");});
   }
 </script>
 </body>

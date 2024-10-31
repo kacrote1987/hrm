@@ -14,4 +14,6 @@ public interface PersonMapper {
     boolean insertPerson(@Param("params") PersonDetForm params);
     boolean updatePerson(@Param("params") PersonDetForm params);
     boolean deletePerson(Long personId);
+    List<PersonDetForm> compDict();
+    List<PersonDetForm> deptDict();
 }

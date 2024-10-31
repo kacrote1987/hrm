@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybaselectByUsernametiselectUsers.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hrm.mapper.BusinMapper">
+    <select id="trainList" resultType="com.hrm.entity.TrainListForm" >
+        select train_id,train_theme,train_time,person_id,person_no,person_name,train_state from t_train_main where 1=1
+        <if test="params.trainTheme!=null and params.trainTheme!=''">
+            and train_theme like '%' #{params.trainTheme} '%'
+        </if>
+        <if test="params.personName!=null and params.personName!=''">
+            and person_name like '%' #{params.personName} '%'
+        </if>
+        <if test="params.trainState!=null and params.trainState!=''">
+            and train_state like '%' #{params.trainState} '%'
+        </if>
+    </select>
+    <select id="trainDet" resultType="com.hrm.entity.TrainDetForm" >
+        select train_id,train_theme,train_time,person_id,person_no,person_name,train_state from t_train_main where train_id=#{trainId}
+    </select>
+</mapper>

@@ -19,7 +19,7 @@
         <div class="layui-inline">
           <label class="layui-form-label">用户类别</label>
           <div class="layui-input-block">
-            <select id="prodType" lay-filter="prodType">
+            <select id="userType">
               <option value="">全部</option>
               <option value="管理员">管理员</option>
               <option value="普通用户">普通用户</option>
@@ -29,14 +29,14 @@
         <div class="layui-inline">
           <label class="layui-form-label">用户姓名</label>
           <div class="layui-input-block">
-            <input type="text" id="prodName" placeholder="请输入" autocomplete="off"
+            <input type="text" id="userName" placeholder="请输入" autocomplete="off"
                    class="layui-input">
           </div>
         </div>
         <div class="layui-inline">
           <label class="layui-form-label">用户状态</label>
           <div class="layui-input-block">
-            <select id="prodState">
+            <select id="userState">
               <option value="">全部</option>
               <option value="在用">在用</option>
               <option value="停用">停用</option>
@@ -127,17 +127,17 @@
     //执行重载
     var $ = layui.$, active = {
       reload: function () {
-        var typeName = $('#typeName');
-        var prodName = $('#prodName');
-        var prodState = $('#prodState');
+        var userType = $('#userType');
+        var userName = $('#userName');
+        var userState = $('#userState');
         table.reload('userReload', {
           page: {
             curr: 1 //重新从第 1 页开始
           }
           , where: {
-            typeName: typeName.val(),
-            prodName: prodName.val(),
-            prodState: prodState.val()
+            userType: userType.val(),
+            userName: userName.val(),
+            userState: userState.val()
           }
         }, 'data');
       }
