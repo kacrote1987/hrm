@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybaselectByUsernametiselectUsers.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hrm.mapper.DeptMapper">
+    <select id="deptList" resultType="com.hrm.entity.DeptListForm" >
+        select dept_id,dept_name,dept_lv,dept_order from t_dept_main where 1=1
+        <if test="params.deptName!=null and params.deptName!=''">
+            and dept_name like '%' #{params.deptName} '%'
+        </if>
+    </select>
+    <insert id="insertDept">
+        insert into t_server_main(server_room,server_cabinet,server_number,server_name,server_config,server_ip,backup_ip,server_state
+        ,begin_date,end_date,server_price,server_cost,server_profit,server_arrears,server_remark)
+        values(#{params.serverRoom},#{params.serverCabinet},#{params.serverNumber},#{params.serverName},#{params.serverConfig},#{params.serverIp}
+        ,#{params.backupIp},#{params.serverState},#{params.beginDate},#{params.endDate},#{params.serverPrice},#{params.serverCost}
+        ,#{params.serverProfit},#{params.serverArrears},#{params.serverRemark})
+    </insert>
+    <update id="updateDept">
+        update t_server_main set server_room=#{params.serverRoom},server_cabinet=#{params.serverCabinet},server_number=#{params.serverNumber}
+        ,server_name=#{params.serverName},server_config=#{params.serverConfig},server_ip=#{params.serverIp},backup_ip=#{params.backupIp}
+        ,server_state=#{params.serverState},begin_date=#{params.beginDate},end_date=#{params.endDate},server_price=#{params.serverPrice}
+        ,server_cost=#{params.serverCost},server_profit=#{params.serverProfit},server_arrears=#{params.serverArrears},server_remark=#{params.serverRemark}
+        where server_id=#{params.serverId}
+    </update>
+    <delete id="deleteDept">
+        delete from t_server_main where server_id=#{serverId}
+    </delete>
+</mapper>

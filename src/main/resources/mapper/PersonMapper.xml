@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybaselectByUsernametiselectUsers.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hrm.mapper.PersonMapper">
+    <select id="personList" resultType="com.hrm.entity.PersonListForm" >
+        select a.person_id,b.dept_name,a.person_no,a.person_name,a.person_sex,a.person_tel,a.person_degree,a.person_polity
+        ,a.person_state from t_person_main a inner join t_dept_main b on a.dept_id=b.dept_id where 1=1
+        <if test="params.deptName!=null and params.deptName!=''">
+            and a.dept_id = (select dept_id from t_dept_main where dept_name like '%' #{params.deptName} '%' limit 1)
+        </if>
+        <if test="params.personName!=null and params.personName!=''">
+            and a.person_name like '%' #{params.personName} '%'
+        </if>
+        <if test="params.personState!=null and params.personState!=''">
+            and a.person_state = #{params.personState}
+        </if>
+    </select>
+    <select id="personDet" resultType="com.hrm.entity.PersonDetForm" >
+        select a.person_id,a.dept_id,b.dept_name,a.person_no,a.person_name,a.person_sex,a.person_tel,a.person_addr,a.person_degree,a.person_polity
+        ,a.person_note,a.person_state from t_person_main a inner join t_dept_main b on a.dept_id=b.dept_id where a.person_id=#{personId}
+    </select>
+    <insert id="insertPerson">
+        insert into t_customer_main(customer_name,customer_tel,customer_qq,customer_ww)
+        values(#{params.customerName},#{params.customerTel},#{params.customerQq},#{params.customerWw})
+    </insert>
+    <update id="updatePerson">
+        update t_customer_main set customer_name=#{params.customerName},customer_tel=#{params.customerTel},customer_qq=#{params.customerQq}
+        ,customer_ww=#{params.customerWw} where customer_id=#{params.customerId}
+    </update>
+    <delete id="deletePerson">
+        delete from t_person_main where person_id=#{personId}
+    </delete>
+</mapper>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>人员详细</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet" href="layuiadmin/layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="layuiadmin/style/admin.css" media="all">
+</head>
+<body>
+<div class="layui-fluid">
+  <div class="layui-card">
+    <div class="layui-card-body">
+      <div class="layui-row layui-col-space12">
+        <div class="layui-col-md2">
+        </div>
+        <div class="layui-col-md8">
+          <div class="layui-card">
+            <input id="personId" type="text" placeholder="" autocomplete="off"
+                   class="layui-input" style="display: none">
+            <div class="layui-card-body">
+              <form class="layui-form" action="" lay-filter="component-form-element">
+                <div class="layui-row layui-col-space10 layui-form-item">
+                  <div class="layui-row layui-col-space10 layui-form-item">
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">所属部门</label>
+                      <div class="layui-input-block">
+                        <input id="deptName" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">编号</label>
+                      <div class="layui-input-block">
+                        <input id="personNo" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="layui-row layui-col-space10 layui-form-item">
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">姓名</label>
+                      <div class="layui-input-block">
+                        <input id="personName" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">性别</label>
+                      <div class="layui-input-block">
+                        <input id="personSex" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="layui-row layui-col-space10 layui-form-item">
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">电话</label>
+                      <div class="layui-input-block">
+                        <input id="personTel" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">地址</label>
+                      <div class="layui-input-block">
+                        <input id="personAddr" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="layui-row layui-col-space10 layui-form-item">
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">学历</label>
+                      <div class="layui-input-block">
+                        <input id="personDegree" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">政治面貌</label>
+                      <div class="layui-input-block">
+                        <input id="personPolity" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="layui-row layui-col-space10 layui-form-item">
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">学历</label>
+                      <div class="layui-input-block">
+                        <input id="personState" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="layui-row layui-col-space10 layui-form-item">
+                    <div class="layui-col-lg6">
+                      <label class="layui-form-label">备注</label>
+                      <div class="layui-input-block">
+                        <input id="personNote" type="text" lay-verify="required" placeholder=""
+                               autocomplete="off" class="layui-input">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="layui-col-md2">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="layui-form-item layui-layout-admin">
+  <div class="layui-input-block">
+    <div class="layui-footer" style="left: 0;">
+      <button class="layui-btn" onclick="save()">保存</button>
+    </div>
+  </div>
+</div>
+
+<script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/script/login.js"></script>
+<script src="js/demo.js"></script>
+<script src="layuiadmin/layui/layui.js"></script>
+<script>
+  layui.config({
+    base: 'layuiadmin/' //静态资源所在路径
+  }).extend({
+    index: 'lib/index' //主入口模块
+  }).use(['index', 'form', 'table', 'laydate'], function () {
+    var $ = layui.$
+            , form = layui.form
+            , laydate = layui.laydate
+            , table = layui.table;
+
+    form.render(null, 'component-form-group');
+    var personId = window.location.search.substring(1, window.location.search.length);
+    $.ajax({
+      type: "post",
+      url: "/person/personDet",
+      contentType: "application/json;charset=utf-8",
+      dataType: "json",
+      data: personId,
+      success: function (detObj) {
+        if (detObj.msg == "success") {
+          var detJson = detObj.data[0];
+          $('#personId').val(detJson.personId);
+          $('#personName').val(detJson.personName);
+          $('#personTel').val(detJson.personTel);
+          layui.form.render();
+        }
+      }
+    });
+  });
+
+  function save(){
+    var params={};
+    params.personId=$('#personId').val();
+    params.personName=$('#personName').val();
+    params.personTel=$('#personTel').val();
+    postdata(params,"/person/personSave",function () {layer.msg("保存成功！");});
+  }
+</script>
+</body>
+</html>
